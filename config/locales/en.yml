@@ -1,0 +1,58 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  errors:
+    messages:
+      blank: "Can't be blank"
+      invalid: "Invalid"
+      confirmation: "Doesn't match confirmation"
+      uniqueness: "Already taken"
+
+  activerecord:
+    errors:
+      models:
+        temp_user:
+          attributes:
+            email:
+              blank: "can't be blank"
+              invalid: "invalid"
+            username:
+              blank: "can't be blank"
+              taken: "already taken"
+              too_short: "is too short (minimum is 4 characters)"
+              too_long: "is too long (maximum is 15 characters)"
+            password:
+              blank: "can't be blank "
+              too_short: "is too short (minimum is 6 characters)"
+              too_long: "is too long (maximum is 20 characters)"
+            password_confirmation:
+              confirmation: "doesn't match password confirmation"

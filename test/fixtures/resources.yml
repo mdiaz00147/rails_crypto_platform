@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: resources
+#
+#  id            :integer          not null, primary key
+#  title         :string           not null
+#  description   :text
+#  video         :string
+#  resource_type :integer          not null
+#  resource_id   :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  file          :string
+#  active        :boolean          default(TRUE)
+#  active_plans  :string
+#  duration      :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  video: MyString
+  resource_type: 1
+
+two:
+  title: MyString
+  description: MyText
+  video: MyString
+  resource_type: 1
