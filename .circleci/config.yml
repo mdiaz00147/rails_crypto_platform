@@ -62,3 +62,12 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+  
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh root@185.39.11.13 "<remote deploy command>"
