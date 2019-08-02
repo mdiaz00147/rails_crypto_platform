@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.6.1-node
+      - image: circleci/ruby:2.4.2-jessie-node
         environment:
           BUNDLER_VERSION: 2.0.1
 
@@ -31,11 +31,11 @@ jobs:
       - run: sudo gem uninstall bundler
       - run: sudo rm /usr/local/bin/bundle
       - run: sudo rm /usr/local/bin/bundler
-      - run: sudo gem install bundler
+      - run: sudo gem install bundler -v '2.0.1'
       - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            sudo bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
@@ -43,8 +43,8 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run: sudo bundle exec rake db:create
+      - run: sudo bundle exec rake db:schema:load
 
       # run tests!
       - run:
@@ -54,13 +54,8 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
-
+            sudo RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+  
       # collect reports
       - store_test_results:
           path: /tmp/test-results

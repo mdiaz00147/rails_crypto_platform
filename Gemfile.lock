@@ -826,6 +826,7 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
+    diff-lcs (1.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     ecdsa (1.2.0)
@@ -936,6 +937,19 @@ GEM
       netrc (~> 0.8)
     rotp (5.0.0)
       addressable (~> 2.5)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.2)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.2)
     ruby-graphviz (1.2.4)
     ruby_dep (1.5.0)
     ruby_http_client (3.3.0)
@@ -1002,6 +1016,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rack-cors
   rails (~> 5.1.4)
+  rspec
   sendgrid-ruby
   sidekiq
   spring

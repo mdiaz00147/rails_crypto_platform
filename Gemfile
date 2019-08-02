@@ -43,6 +43,8 @@ gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec'
+  gem 'rspec_junit_formatter' 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
