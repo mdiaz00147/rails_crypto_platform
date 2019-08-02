@@ -71,3 +71,15 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh root@185.39.11.13 "<remote deploy command>"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
