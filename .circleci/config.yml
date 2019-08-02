@@ -31,11 +31,11 @@ jobs:
       - run: sudo gem uninstall bundler
       - run: sudo rm /usr/local/bin/bundle
       - run: sudo rm /usr/local/bin/bundler
-      - run: gem install bundler -v '2.0.1'
+      - run: sudo gem install bundler -v '2.0.1'
       - run:
           name: install dependencies
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            sudo bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
@@ -54,7 +54,7 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
-            RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+            sudo RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
   
       # collect reports
       - store_test_results:
