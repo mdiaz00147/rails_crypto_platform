@@ -31,7 +31,7 @@ jobs:
       - run: sudo gem uninstall bundler
       - run: sudo rm /usr/local/bin/bundle
       - run: sudo rm /usr/local/bin/bundler
-      - run: sudo gem install bundler
+      - run: gem install bundler -v '2.0.1'
       - run:
           name: install dependencies
           command: |
