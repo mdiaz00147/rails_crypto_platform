@@ -893,7 +893,8 @@ GEM
     public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
-    rack-cors (1.0.3)
+    rack-cors (1.0.5)
+      rack (>= 1.6.0)
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
@@ -950,6 +951,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
+    rspec_junit_formatter (0.4.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     ruby-graphviz (1.2.4)
     ruby_dep (1.5.0)
     ruby_http_client (3.3.0)
@@ -1017,6 +1020,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.1.4)
   rspec
+  rspec_junit_formatter
   sendgrid-ruby
   sidekiq
   spring
